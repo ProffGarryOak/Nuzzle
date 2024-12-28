@@ -26,15 +26,15 @@ const __dirname = path.resolve();
 
 const allowedOrigins = ['http://localhost:3000', 'https://nntwitter.onrender.com/','https://nntwitter.vercel.app']; // replace with the origins you want to allow
 
+
 app.use(cors({
-  origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
+  origin: '*', // Allows requests from any origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allows all methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // Allows specific headers
 }));
+
+
+
 app.use(express.json({ limit: "5mb" }));
 app.use(express.urlencoded({ extended: true })); 
 
