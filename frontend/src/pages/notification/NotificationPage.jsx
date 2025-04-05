@@ -27,7 +27,7 @@ const NotificationPage = () => {
 	const { mutate: deleteNotifications } = useMutation({
 		mutationFn: async () => {
 			try {
-				const res = await fetch("https://soshmed.onrender.com/api/notifications", {
+				const res = await fetch("http://localhost:5000", {
 					method: "DELETE",
 				});
 				const data = await res.json();
